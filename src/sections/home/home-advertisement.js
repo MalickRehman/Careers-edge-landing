@@ -32,8 +32,15 @@ export default function HomeAdvertisement() {
         variants={varFade().inDown}
         sx={{ color: 'common.white', mb: 5, typography: 'h2' }}
       >
-        Get started with
-        <br /> Minimal kit today
+        Subscribe to us!
+      </Box>
+
+      <Box
+        component={m.div}
+        variants={varFade().inDown}
+        sx={{ color: 'common.white', mb: 5, typography: 'body1' }}
+      >
+        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
       </Box>
 
       <Stack
@@ -42,37 +49,37 @@ export default function HomeAdvertisement() {
         spacing={2}
       >
         <m.div variants={varFade().inRight}>
-          <Button
-            color="inherit"
-            size="large"
-            variant="contained"
-            target="_blank"
-            rel="noopener"
-            href={paths.minimalUI}
+          <Box
+            component="input"
+            type="text"
+            placeholder="Enter your email"
             sx={{
+              width: { xs: '100%', md: 300 },
+              padding: '15px 20px',
+              fontSize: '16px',
+              borderRadius: '8px',
+              border: '1px solid',
+              borderColor: 'grey.300',
+              bgcolor: 'white',
               color: 'grey.800',
-              bgcolor: 'common.white',
+              '&:focus': {
+                borderColor: theme.palette.primary.main,
+              },
             }}
-          >
-            Purchase Now
-          </Button>
+          />
         </m.div>
 
         <m.div variants={varFade().inRight}>
           <Button
             color="inherit"
             size="large"
-            variant="outlined"
-            target="_blank"
-            rel="noopener"
-            href={paths.freeUI}
-            endIcon={<Iconify icon="eva:external-link-fill" width={16} sx={{ mr: 0.5 }} />}
+            variant="contained"
             sx={{
-              color: 'common.white',
-              '&:hover': { borderColor: 'currentColor' },
+              color: 'grey.800',
+              bgcolor: 'common.white',
             }}
           >
-            Get Free Version
+            Send
           </Button>
         </m.div>
       </Stack>
@@ -95,24 +102,36 @@ export default function HomeAdvertisement() {
   );
 
   return (
-    <Container component={MotionViewport}>
-      <Stack
-        alignItems="center"
-        direction={{ xs: 'column', md: 'row' }}
+    <>
+      <Container
+        maxWidth="lg"
+        component={MotionViewport}
         sx={{
-          ...bgGradient({
-            direction: '135deg',
-            startColor: theme.palette.primary.main,
-            endColor: theme.palette.primary.dark,
-          }),
-          borderRadius: 2,
-          pb: { xs: 5, md: 0 },
+          textAlign: 'center',
+          width: '100%',
+          position: 'relative',
+          padding: { xs: '0 16px', md: '0 24px' },
+          marginTop: '50px',
         }}
       >
-        {renderImg}
+        <Stack
+          alignItems="center"
+          direction={{ xs: 'column', md: 'row' }}
+          sx={{
+            ...bgGradient({
+              direction: '135deg',
+              startColor: theme.palette.primary.main,
+              endColor: theme.palette.primary.dark,
+            }),
+            borderRadius: 2,
+            pb: { xs: 5, md: 0 },
+          }}
+        >
+          {renderImg}
 
-        {renderDescription}
-      </Stack>
-    </Container>
+          {renderDescription}
+        </Stack>
+      </Container>
+    </>
   );
 }

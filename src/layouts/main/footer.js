@@ -1,172 +1,143 @@
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
-import { alpha } from '@mui/material/styles';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-
-import { paths } from 'src/routes/paths';
-import { usePathname } from 'src/routes/hooks';
-import { RouterLink } from 'src/routes/components';
-
-import { _socials } from 'src/_mock';
-
+import { Box, Container, Grid, Link, Typography, IconButton } from '@mui/material';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import GoogleIcon from '@mui/icons-material/Google';
 import Logo from 'src/components/logo';
-import Iconify from 'src/components/iconify';
-
-// ----------------------------------------------------------------------
-
-const LINKS = [
-  {
-    headline: 'Minimal',
-    children: [
-      { name: 'About us', href: paths.about },
-      { name: 'Contact us', href: paths.contact },
-      { name: 'FAQs', href: paths.faqs },
-    ],
-  },
-  {
-    headline: 'Legal',
-    children: [
-      { name: 'Terms and Condition', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
-    ],
-  },
-  {
-    headline: 'Contact',
-    children: [{ name: 'support@minimals.cc', href: '#' }],
-  },
-];
-
-// ----------------------------------------------------------------------
+import { paths } from 'src/routes/paths';
 
 export default function Footer() {
-  const pathname = usePathname();
-
-  const homePage = pathname === '/';
-
-  const simpleFooter = (
-    <Box
-      component="footer"
-      sx={{
-        py: 5,
-        textAlign: 'center',
-        position: 'relative',
-        bgcolor: 'background.default',
-      }}
-    >
-      <Container>
-        <Logo sx={{ mb: 1, mx: 'auto' }} />
-
-        <Typography variant="caption" component="div">
-          © All rights reserved
-          <br /> made by
-          <Link href="https://minimals.cc/"> minimals.cc </Link>
-        </Typography>
-      </Container>
-    </Box>
-  );
-
-  const mainFooter = (
-    <Box
-      component="footer"
-      sx={{
-        position: 'relative',
-        bgcolor: 'background.default',
-      }}
-    >
-      <Divider />
-
-      <Container
-        sx={{
-          pt: 10,
-          pb: 5,
-          textAlign: { xs: 'center', md: 'unset' },
-        }}
-      >
+  return (
+    <Box sx={{ backgroundColor: '#f2f0f0', pt: 6, pb: 6 }}>
+      <Container maxWidth="lg">
         <Logo sx={{ mb: 3 }} />
-
-        <Grid
-          container
-          justifyContent={{
-            xs: 'center',
-            md: 'space-between',
-          }}
-        >
-          <Grid xs={8} md={3}>
-            <Typography
-              variant="body2"
-              sx={{
-                maxWidth: 270,
-                mx: { xs: 'auto', md: 'unset' },
-              }}
-            >
-              The starting point for your next project with Minimal UI Kit, built on the newest
-              version of Material-UI ©, ready to be customized to your style.
+        <Grid container spacing={4}>
+          <Grid item xs={12} sm={6} md={3}>
+            <Typography variant="h6" gutterBottom>
+              CareerEdge
             </Typography>
-
-            <Stack
-              direction="row"
-              justifyContent={{ xs: 'center', md: 'flex-start' }}
-              sx={{
-                mt: 3,
-                mb: { xs: 5, md: 0 },
-              }}
-            >
-              {_socials.map((social) => (
-                <IconButton
-                  key={social.name}
-                  sx={{
-                    '&:hover': {
-                      bgcolor: alpha(social.color, 0.08),
-                    },
-                  }}
-                >
-                  <Iconify color={social.color} icon={social.icon} />
-                </IconButton>
-              ))}
-            </Stack>
+            <Typography variant="body1" gutterBottom>
+              Unlock your potential and shape your future by mastering the IT skills that are
+              driving today's world.
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 2 }}>
+              <IconButton href="#" aria-label="Twitter" color="inherit">
+                <TwitterIcon />
+              </IconButton>
+              <IconButton href="#" aria-label="Facebook" color="inherit">
+                <FacebookIcon />
+              </IconButton>
+              <IconButton href="#" aria-label="Google" color="inherit">
+                <GoogleIcon />
+              </IconButton>
+            </Box>
           </Grid>
 
-          <Grid xs={12} md={6}>
-            <Stack spacing={5} direction={{ xs: 'column', md: 'row' }}>
-              {LINKS.map((list) => (
-                <Stack
-                  key={list.headline}
-                  spacing={2}
-                  alignItems={{ xs: 'center', md: 'flex-start' }}
-                  sx={{ width: 1 }}
-                >
-                  <Typography component="div" variant="overline">
-                    {list.headline}
-                  </Typography>
+          <Grid item xs={12} sm={6} md={2}>
+            <Typography variant="h6" gutterBottom>
+              Services
+            </Typography>
+            <Link
+              href={paths.courses.root}
+              underline="none"
+              color="text.secondary"
+              display="block"
+              mb={1}
+            >
+              Courses
+            </Link>
+          </Grid>
 
-                  {list.children.map((link) => (
-                    <Link
-                      key={link.name}
-                      component={RouterLink}
-                      href={link.href}
-                      color="inherit"
-                      variant="body2"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </Stack>
-              ))}
-            </Stack>
+          <Grid item xs={12} sm={6} md={2}>
+            <Typography variant="h6" gutterBottom>
+              Important Links
+            </Typography>
+            <Link
+              href={paths.contact}
+              underline="none"
+              color="text.secondary"
+              display="block"
+              mb={1}
+            >
+              Contact Us
+            </Link>
+            <Link href={paths.about} underline="none" color="text.secondary" display="block" mb={1}>
+              About Us
+            </Link>
+            <Link href={paths.blog} underline="none" color="text.secondary" display="block" mb={1}>
+              Blog
+            </Link>
+            <Link href={paths.faqs} underline="none" color="text.secondary" display="block" mb={1}>
+              FAQs
+            </Link>
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={2}>
+            <Typography variant="h6" gutterBottom>
+              Legal
+            </Typography>
+            <Link href={paths.terms} underline="none" color="text.secondary" display="block" mb={1}>
+              Terms and Conditions
+            </Link>
+            <Link
+              href={paths.privacy}
+              underline="none"
+              color="text.secondary"
+              display="block"
+              mb={1}
+            >
+              Privacy Policy
+            </Link>
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <Typography variant="h6" gutterBottom>
+              Contact
+            </Typography>
+            <Link
+              href={paths.facebook}
+              underline="none"
+              color="text.secondary"
+              display="block"
+              mb={1}
+            >
+              Facebook
+            </Link>
+            <Link
+              href={paths.twitter}
+              underline="none"
+              color="text.secondary"
+              display="block"
+              mb={1}
+            >
+              Twitter
+            </Link>
+            <Link
+              href={paths.googlePlus}
+              underline="none"
+              color="text.secondary"
+              display="block"
+              mb={1}
+            >
+              Google Plus
+            </Link>
+            <Link
+              href={paths.github}
+              underline="none"
+              color="text.secondary"
+              display="block"
+              mb={1}
+            >
+              GitHub
+            </Link>
           </Grid>
         </Grid>
 
-        <Typography variant="body2" sx={{ mt: 10 }}>
-          © 2021. All rights reserved
-        </Typography>
+        <Box mt={4} textAlign="center">
+          <Typography variant="body2" color="textSecondary">
+            © 2018 Slick Inc. All rights reserved.
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );
-
-  return homePage ? simpleFooter : mainFooter;
 }

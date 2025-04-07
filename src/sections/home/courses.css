@@ -1,0 +1,32 @@
+
+  
+  .text-section {
+    flex: 1;
+    padding-right: 40px;
+  }
+  
+  .carousel-section {
+    flex: 3;
+    position: relative;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  
+ 
+  
+  .arrow svg {
+    font-size: 24px;
+    color: black;
+  }
+  
+  

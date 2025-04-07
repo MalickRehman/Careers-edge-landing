@@ -4,14 +4,10 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
 import { alpha, useTheme } from '@mui/material/styles';
-import InputAdornment from '@mui/material/InputAdornment';
-import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 
 import { bgGradient } from 'src/theme/css';
 
-import Iconify from 'src/components/iconify';
 import { varFade, MotionContainer } from 'src/components/animate';
 
 // ----------------------------------------------------------------------
@@ -41,39 +37,24 @@ export default function FaqsHero() {
           }}
         >
           <div>
-            <TextAnimate text="How" sx={{ color: 'primary.main' }} variants={varFade().inRight} />
+            <TextAnimate
+              text="Explore"
+              sx={{ color: 'primary.main' }}
+              variants={varFade().inRight}
+            />
             <br />
 
             <Stack spacing={2} display="inline-flex" direction="row" sx={{ color: 'common.white' }}>
-              <TextAnimate text="can" />
-              <TextAnimate text="we" />
-              <TextAnimate text="help" />
-              <TextAnimate text="you?" />
+              <TextAnimate text="Our" />
+              <TextAnimate text="Faq's" />
             </Stack>
           </div>
 
           <m.div variants={varFade().in}>
-            <TextField
-              fullWidth
-              placeholder="Search support..."
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled' }} />
-                  </InputAdornment>
-                ),
-              }}
-              sx={{
-                mt: 5,
-                maxWidth: 360,
-                [`& .${outlinedInputClasses.root}`]: {
-                  bgcolor: 'common.white',
-                },
-                [`& .${outlinedInputClasses.input}`]: {
-                  typography: 'subtitle1',
-                },
-              }}
-            />
+            <Stack spacing={2} display="inline-flex" direction="row" sx={{ color: 'common.white' }}>
+              <TextAnimate text="your" />
+              <TextAnimate text="Questions" />
+            </Stack>
           </m.div>
         </Box>
       </Container>

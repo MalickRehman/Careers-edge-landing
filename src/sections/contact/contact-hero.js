@@ -15,24 +15,9 @@ import { varFade, MotionContainer } from 'src/components/animate';
 
 const CONTACTS = [
   {
-    country: 'Bali',
-    address: '508 Bridle Avenue Newnan, GA 30263',
+    City: 'Faisalabad',
+    address: 'House# 858 people colony1 B-Block faisalabad',
     phoneNumber: '(239) 555-0108',
-  },
-  {
-    country: 'London',
-    address: '508 Bridle Avenue Newnan, GA 30263',
-    phoneNumber: '(319) 555-0115',
-  },
-  {
-    country: 'Prague',
-    address: '508 Bridle Avenue Newnan, GA 30263',
-    phoneNumber: '(252) 555-0126',
-  },
-  {
-    country: 'Moscow',
-    address: '508 Bridle',
-    phoneNumber: '(307) 555-0133',
   },
 ];
 
@@ -78,10 +63,10 @@ export default function ContactHero() {
             sx={{ mt: 5, color: 'common.white' }}
           >
             {CONTACTS.map((contact) => (
-              <Stack key={contact.country} sx={{ maxWidth: 180 }}>
+              <Stack key={contact.City} sx={{ maxWidth: 180 }}>
                 <m.div variants={varFade().in}>
                   <Typography variant="h6" gutterBottom>
-                    {contact.country}
+                    {contact.City}
                   </Typography>
                 </m.div>
 

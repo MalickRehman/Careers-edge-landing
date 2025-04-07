@@ -76,7 +76,7 @@ export default function AboutWhat() {
         <Grid xs={12} md={6} lg={5}>
           <m.div variants={varFade().inRight}>
             <Typography variant="h2" sx={{ mb: 3 }}>
-              What is Minimal?
+              About Us?
             </Typography>
           </m.div>
 
@@ -115,7 +115,7 @@ export default function AboutWhat() {
             ))}
           </Stack>
 
-          <m.div variants={varFade().inRight}>
+          {/* <m.div variants={varFade().inRight}>
             <Button
               variant="outlined"
               color="inherit"
@@ -124,7 +124,7 @@ export default function AboutWhat() {
             >
               Our Work
             </Button>
-          </m.div>
+          </m.div> */}
         </Grid>
       </Grid>
     </Container>

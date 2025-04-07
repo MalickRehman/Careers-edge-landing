@@ -2,16 +2,17 @@ import { m, useScroll } from 'framer-motion';
 import { useRef, useState, useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
+
 import Stack from '@mui/material/Stack';
-import Rating from '@mui/material/Rating';
+import { useRouter } from 'src/routes/hooks';
+
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import { alpha, styled, useTheme } from '@mui/material/styles';
-
 import { paths } from 'src/routes/paths';
+
 import { RouterLink } from 'src/routes/components';
 
 import { useResponsive } from 'src/hooks/use-responsive';
@@ -61,7 +62,7 @@ const StyledTextGradient = styled(m.h1)(({ theme }) => ({
   textAlign: 'center',
   backgroundSize: '400%',
   fontSize: `${64 / 16}rem`,
-  fontFamily: theme.typography.fontSecondaryFamily,
+  // fontFamily: theme.typography.fontSecondaryFamily,
   [theme.breakpoints.up('md')]: {
     fontSize: `${96 / 16}rem`,
   },
@@ -120,6 +121,11 @@ const StyledPolygon = styled('div')(({ opacity = 1, anchor = 'left', theme }) =>
 // ----------------------------------------------------------------------
 
 export default function HomeHero() {
+  const router = useRouter();
+
+  const handleNavigate = () => {
+    router.push('/courses');
+  };
   const mdUp = useResponsive('up', 'md');
 
   const theme = useTheme();
@@ -153,7 +159,7 @@ export default function HomeHero() {
   const transition = {
     repeatType: 'loop',
     ease: 'linear',
-    duration: 60 * 4,
+    duration: 30,
     repeat: Infinity,
   };
 
@@ -180,16 +186,27 @@ export default function HomeHero() {
           variant="h2"
           sx={{
             textAlign: 'center',
+
+            fontWeight: 700,
+            letterSpacing: 4,
+
+            fontFamily: 'Poppins, sans-serif',
           }}
         >
-          Start a <br />
-          New Project with
+          Start <br />
+          Your Future with
         </Typography>
       </m.div>
 
       <m.div variants={varFade().in}>
         <StyledTextGradient
           animate={{ backgroundPosition: '200% center' }}
+          sx={{
+            fontWeight: 800,
+            letterSpacing: 4,
+            lineHeight: 1.1,
+            fontSize: { xs: '40px', lg: '50px' },
+          }}
           transition={{
             repeatType: 'reverse',
             ease: 'linear',
@@ -197,101 +214,56 @@ export default function HomeHero() {
             repeat: Infinity,
           }}
         >
-          Minimal
+          CareerEdge
         </StyledTextGradient>
       </m.div>
 
       <m.div variants={varFade().in}>
-        <Typography variant="body2" sx={{ textAlign: 'center' }}>
-          The starting point for your next project is based on MUI.Easy customization Helps you
-          build apps faster and better.
+        <Typography
+          variant="body2"
+          sx={{
+            textAlign: 'center',
+            fontSize: '18px',
+            lineHeight: 1.4,
+            fontFamily: 'Poppins, sans-serif',
+            color: (theme) => alpha(theme.palette.text.primary, 0.8),
+          }}
+        >
+          Open the door to endless opportunities with expert-guided courses that will drive your
+          career to new heights. Whether it's coding or cloud computing, gain the critical skills
+          needed to thrive in today’s tech-centric world.
         </Typography>
       </m.div>
 
       <m.div variants={varFade().in}>
-        <Stack
-          spacing={0.75}
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          sx={{ my: 3 }}
-        >
-          <Rating readOnly value={4.95} precision={0.1} max={5} />
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            <Box component="strong" sx={{ mr: 0.5, color: 'text.primary' }}>
-              4.96/5
-            </Box>
-            (99+ reviews)
-          </Typography>
-        </Stack>
-      </m.div>
-
-      <m.div variants={varFade().in}>
-        <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mb: 5 }}>
+        <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mt: 3 }}>
           <Stack alignItems="center" spacing={2}>
             <Button
               component={RouterLink}
-              href={paths.dashboard.root}
+              href={paths.enroll}
               color="inherit"
               size="large"
               variant="contained"
               startIcon={<Iconify icon="eva:flash-fill" width={24} />}
             >
-              Live Preview
+              Enroll Now
             </Button>
-
-            <Link
-              color="inherit"
-              variant="caption"
-              target="_blank"
-              rel="noopener"
-              href={paths.freeUI}
-              sx={{
-                textDecoration: 'underline',
-                display: 'inline-flex',
-                alignItems: 'center',
-              }}
-            >
-              <Iconify icon="eva:external-link-fill" width={16} sx={{ mr: 0.5 }} />
-              Get Free Version
-            </Link>
           </Stack>
-
-          <Button
-            color="inherit"
-            size="large"
-            variant="outlined"
-            startIcon={<Iconify icon="eva:external-link-fill" width={24} />}
-            target="_blank"
-            rel="noopener"
-            href={paths.figma}
-            sx={{ borderColor: 'text.primary' }}
-          >
-            Design Preview
-          </Button>
+          <Stack alignItems="center" spacing={2}>
+            <Button
+              component={RouterLink}
+              onClick={handleNavigate}
+              href={paths.courses.root}
+              color="inherit"
+              size="large"
+              variant="outlined"
+              startIcon={<Iconify icon="eva:flash-fill" width={24} />}
+            >
+              Explore Courses
+            </Button>
+          </Stack>
         </Stack>
       </m.div>
-
-      <Stack spacing={3} sx={{ textAlign: 'center' }}>
-        <m.div variants={varFade().in}>
-          <Typography variant="overline" sx={{ opacity: 0.48 }}>
-            Available For
-          </Typography>
-        </m.div>
-
-        <Stack spacing={2} direction="row" justifyContent="center">
-          {['js', 'ts', 'figma', 'nextjs', 'vite'].map((icon) => (
-            <m.div key={icon} variants={varFade().in}>
-              <Box
-                component="img"
-                alt={icon}
-                src={`/assets/icons/platforms/ic_${icon}.svg`}
-                sx={{ width: 24, height: 24 }}
-              />
-            </m.div>
-          ))}
-        </Stack>
-      </Stack>
     </Stack>
   );
 
@@ -324,8 +296,8 @@ export default function HomeHero() {
           alt={lightMode ? 'light_1' : 'dark_1'}
           src={
             lightMode
-              ? `/assets/images/home/hero/light_1.webp`
-              : `/assets/images/home/hero/dark_1.webp`
+              ? `/assets/images/home/hero/newImage1 (2).png`
+              : `/assets/images/home/hero/darkImage.png`
           }
           sx={{ position: 'absolute', mt: -5 }}
         />
@@ -336,8 +308,8 @@ export default function HomeHero() {
           alt={lightMode ? 'light_1' : 'dark_1'}
           src={
             lightMode
-              ? `/assets/images/home/hero/light_1.webp`
-              : `/assets/images/home/hero/dark_1.webp`
+              ? `/assets/images/home/hero/newImage1 (2).png`
+              : `/assets/images/home/hero/darkImage.png`
           }
           sx={{ position: 'absolute' }}
         />
@@ -355,10 +327,10 @@ export default function HomeHero() {
           alt={lightMode ? 'light_2' : 'dark_2'}
           src={
             lightMode
-              ? `/assets/images/home/hero/light_2.webp`
+              ? `/assets/images/home/hero/Blue_and_White_Modern.png`
               : `/assets/images/home/hero/dark_2.webp`
           }
-          sx={{ position: 'absolute', mt: -5 }}
+          sx={{ position: 'absolute', mt: -1 }}
         />
         <Box
           component={m.img}
@@ -367,7 +339,7 @@ export default function HomeHero() {
           alt={lightMode ? 'light_2' : 'dark_2'}
           src={
             lightMode
-              ? `/assets/images/home/hero/light_2.webp`
+              ? `/assets/images/home/hero/Blue_and_White_Modern.png`
               : `/assets/images/home/hero/dark_2.webp`
           }
           sx={{ position: 'absolute' }}
