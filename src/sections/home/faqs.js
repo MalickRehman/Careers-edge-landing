@@ -57,8 +57,8 @@ const Faqs = () => {
               lineHeight: { xs: '1.2', md: '1.1' },
             }}
           >
-            Explore Our FAQs: Your Questions, <span style={{ color: 'orange' }}>Our Expertise</span>
-            .
+            Explore Our FAQs: Your Questions,{' '}
+            <span style={{ color: '#0052A5' }}>Our Expertise</span>.
           </Typography>
           <Typography
             variant="h5"
@@ -72,11 +72,16 @@ const Faqs = () => {
           <Button
             variant="outlined"
             onClick={handleNavigate}
+            color="primary"
             sx={{
-              borderColor: '#6A1B9A',
-              color: '#6A1B9A',
+              borderColor: 'primary.main',
+              color: 'primary.main',
               fontSize: { xs: '1rem', md: '1.1rem' },
               padding: { xs: '0.5rem 1rem', md: '0.75rem 1.5rem' },
+              '&:hover': {
+                backgroundColor: '#002D62',
+                color: '#fff',
+              },
             }}
             endIcon={<Iconify icon="eva:arrow-forward-fill" />}
           >
