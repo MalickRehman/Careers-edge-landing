@@ -241,10 +241,16 @@ export default function HomeHero() {
             <Button
               component={RouterLink}
               href={paths.enroll}
-              color="inherit"
+              color="primary"
               size="large"
               variant="contained"
               startIcon={<Iconify icon="eva:flash-fill" width={24} />}
+              sx={{
+                '&:hover': {
+                  backgroundColor: '#002D62',
+                  color: '#fff',
+                },
+              }}
             >
               Enroll Now
             </Button>
@@ -258,6 +264,12 @@ export default function HomeHero() {
               size="large"
               variant="outlined"
               startIcon={<Iconify icon="eva:flash-fill" width={24} />}
+              sx={{
+                '&:hover': {
+                  backgroundColor: 'primary.main',
+                  color: '#fff',
+                },
+              }}
             >
               Explore Courses
             </Button>

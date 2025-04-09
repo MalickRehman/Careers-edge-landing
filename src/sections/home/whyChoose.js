@@ -59,7 +59,7 @@ const WhyChooseUs = () => (
     <Box sx={{ width: '100%', marginTop: '50px', margin: '0 auto' }}>
       <m.div variants={varFade().inDown}>
         <Typography variant="h2" sx={{ marginBottom: '0' }}>
-          Why Choose <span style={{ color: 'orange' }}>CareerEdge?</span>
+          Why Choose <span style={{ color: '#0052A5' }}>CareerEdge?</span>
         </Typography>
       </m.div>
       <Grid container spacing={3}>

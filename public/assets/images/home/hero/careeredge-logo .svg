@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+  <!-- Stylized C element with angular styling -->
+  <path d="M100 100 C100 80, 120 80, 140 80 L230 80 L220 110 L140 110 C130 110, 130 120, 130 130 C130 140, 130 150, 140 150 L220 150 L210 180 L140 180 C120 180, 100 180, 100 160 Z" fill="#0052A5" />
+  
+  <!-- Angular line element -->
+  <path d="M160 110 L160 150" stroke="#0052A5" stroke-width="10" />
+  
+  <!-- Text for CareerEdge -->
+  <text x="250" y="150" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="#000000">CareerEdge</text>
+</svg>
