@@ -90,7 +90,7 @@ export default function CoursesCarousel() {
 
           <m.div variants={varFade().inDown}>
             <Typography variant="h2">
-              Most Popular <span style={{ color: 'orange' }}>Courses</span>
+              Most Popular <span style={{ color: '#0052A5' }}>Courses</span>
             </Typography>
           </m.div>
 
@@ -141,11 +141,11 @@ export default function CoursesCarousel() {
                     variant="outlined"
                     color="primary"
                     sx={{
-                      color: 'primary.main',
+                      color: 'black',
                       mt: 2,
-                      borderColor: 'primary.main',
+                      borderColor: 'black',
                       '&:hover': {
-                        backgroundColor: '#ffa500',
+                        backgroundColor: 'primary.main',
                         color: '#fff',
                       },
                     }}
@@ -175,6 +175,10 @@ export default function CoursesCarousel() {
             mt: 3,
             fontSize: '1.25rem',
             padding: '10px 20px',
+            '&:hover': {
+              backgroundColor: '#002D62',
+              color: '#fff',
+            },
           }}
         >
           <HiArrowRight size={20} style={{ marginRight: '4px' }} />

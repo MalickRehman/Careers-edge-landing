@@ -69,8 +69,8 @@ export default function HomeView() {
         >
           <WhyChooseUs />
           <HomeMinimal />
-          <Testimonial />
-          <Blog />
+          {/* <Testimonial /> */}
+          {/* <Blog /> */}
           <Faqs />
           <HomeAdvertisement />
         </Container>
