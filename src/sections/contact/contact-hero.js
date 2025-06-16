@@ -30,7 +30,7 @@ export default function ContactHero() {
     <Box
       sx={{
         ...bgGradient({
-          color: alpha(theme.palette.grey[900], 0.8),
+          color: alpha(theme.palette.grey[900], 0.55),
           imgUrl: '/assets/images/contact/hero.jpg',
         }),
         height: { md: 560 },

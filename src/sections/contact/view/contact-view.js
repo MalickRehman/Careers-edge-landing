@@ -23,6 +23,11 @@ export default function ContactView() {
         <Box
           gap={10}
           display="grid"
+          sx={{
+            mt: { xs: 5, md: 10 },
+            mb: { xs: 10, md: 15 },
+            px: { xs: 2, md: 0 },
+          }}
           gridTemplateColumns={{
             xs: 'repeat(1, 1fr)',
           }}
